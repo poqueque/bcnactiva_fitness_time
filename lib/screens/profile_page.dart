@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:prova1/styles/app_styles.dart';
 
-class ProfilePage extends StatefulWidget {
+import '../widgets/data_card.dart';
+
+class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
-  @override
-  State<ProfilePage> createState() => _ProfilePageState();
-}
-
-class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFFF896D8),
-        centerTitle: true,
         title: const Text("Profile"),
       ),
       body: Center(
@@ -30,78 +26,25 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             const Text(
               'Antònia Font',
-              style: TextStyle(
-                fontSize: 40,
-                color: Colors.black45,
-              ),
+              style: AppStyles.largeTitle,
             ),
             const Text(
               'registered 20 April 2023',
-              style: TextStyle(
-                color: Colors.black45,
-              ),
+              style: AppStyles.subTitle,
             ),
             const SizedBox(height: 32),
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Card(
-                  elevation: 4,
-                  color: Color(0xFFCA7DF9),
-                  child: Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Column(
-                      children: [
-                        Icon(Icons.access_alarm),
-                        Text("Time"),
-                        Text(
-                          "2h 45'",
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Card(
-                  elevation: 4,
-                  color: Color(0xFFCA7DF9),
-                  child: Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Column(
-                      children: [
-                        Icon(Icons.place),
-                        Text("Km"),
-                        Text(
-                          "212,4",
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Card(
-                  elevation: 4,
-                  color: Color(0xFFCA7DF9),
-                  child: Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Column(
-                      children: [
-                        Icon(Icons.home),
-                        Text("Activities"),
-                        Text(
-                          "42",
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                DataCard(
+                    iconData: Icons.access_alarm,
+                    label: "Time",
+                    value: "2h 45'"),
+                DataCard(iconData: Icons.place, label: "Km", value: "2h 45'"),
+                DataCard(
+                    iconData: Icons.directions_run,
+                    label: "Activities",
+                    value: "42"),
               ],
             ),
             const SizedBox(height: 16),
@@ -113,7 +56,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   min: 100,
                   max: 250,
                   value: 150,
-                  activeColor: const Color(0xFFCA7DF9),
+                  activeColor: AppStyles.heliotrope,
                   onChanged: (value) {},
                 ),
                 const Text("150 cm"),
@@ -127,7 +70,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   min: 40,
                   max: 100,
                   value: 55,
-                  activeColor: const Color(0xFFCA7DF9),
+                  activeColor: AppStyles.heliotrope,
                   onChanged: (value) {},
                 ),
                 const Text("55 kg"),

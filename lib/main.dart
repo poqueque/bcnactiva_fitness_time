@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:prova1/styles/app_styles.dart';
 
 import 'screens/profile_page.dart';
 
@@ -19,6 +20,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.cyanAccent),
         fontFamily: GoogleFonts.montserrat().fontFamily,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: AppStyles.persianPink,
+          foregroundColor: Colors.white,
+          elevation: 4,
+          shadowColor: Colors.black,
+          centerTitle: true,
+        ),
         useMaterial3: true,
       ),
       home: const ProfilePage(),
