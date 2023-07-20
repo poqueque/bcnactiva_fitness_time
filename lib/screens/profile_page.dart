@@ -3,8 +3,17 @@ import 'package:prova1/styles/app_styles.dart';
 
 import '../widgets/data_card.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  double height = 150;
+  double weight = 55;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,11 +64,14 @@ class ProfilePage extends StatelessWidget {
                 Slider(
                   min: 100,
                   max: 250,
-                  value: 150,
+                  value: height,
                   activeColor: AppStyles.heliotrope,
-                  onChanged: (value) {},
+                  onChanged: (value) {
+                    height = value;
+                    setState(() {});
+                  },
                 ),
-                const Text("150 cm"),
+                Text("${height.toInt()} cm"),
               ],
             ),
             Row(
@@ -69,11 +81,14 @@ class ProfilePage extends StatelessWidget {
                 Slider(
                   min: 40,
                   max: 100,
-                  value: 55,
+                  value: weight,
                   activeColor: AppStyles.heliotrope,
-                  onChanged: (value) {},
+                  onChanged: (value) {
+                    weight = value;
+                    setState(() {});
+                  },
                 ),
-                const Text("55 kg"),
+                Text("${weight.toInt()} kg"),
               ],
             )
           ],
